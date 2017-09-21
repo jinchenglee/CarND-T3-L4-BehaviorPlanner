@@ -57,6 +57,24 @@ void Vehicle::update_state(map<int,vector < vector<int> > > predictions) {
     }
 
     */
+
+    cout << "ego lane is:" << lane << endl;
+
+    map<int, vector< vector<int> > >::iterator it = predictions.begin();
+
+    while (it != predictions.end())
+    {
+        cout << "pred vid:" << int(it->first) << endl;
+        vector< vector<int> > tmp = it->second;
+        for(int i=0; i< tmp.size(); i++) {
+            vector<int> lane_s = tmp[i];
+            cout << "lane :" << lane_s[0] << ", s :" << lane_s[1] << endl;
+        }
+        it++;
+    }
+
+    //cout << "pred vid:" << predictions[0] << endl;
+
     state = "KL"; // this is an example of how you change state.
 
 
